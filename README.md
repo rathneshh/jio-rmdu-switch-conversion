@@ -196,15 +196,15 @@ reboot
 
 ## 7. Port 8 (Blue PoE Out) Safety & Usage Rules
 
-- **Power Specifications:** Port 8 provides **48V–56V DC (up to 25W)** compliant with IEEE 802.3af/at.
-- **Compatible Devices:** Standard 48V PoE Access Points (UniFi, Omada), 48V PoE IP cameras, or 48V VoIP phones.
+- **Power Specifications:** Port 8 provides **48V–56V DC (up to 25W)** compliant with IEEE 802.3af/at (Active PSE).
+- **Compatible PoE Devices:** Standard 48V PoE Access Points (UniFi, Omada), 48V PoE IP cameras, or 48V VoIP phones.
 - **Power Budget with Stock Adapter (30W):** 
   - The RMDU requires ~8W–12W for its own internal operation (SoC, switch ASIC, LEDs, and PHYs).
   - With the stock **54V 0.56A (30.00W)** injector, the remaining power budget on Port 8 is approximately **15W–18W** — sufficient to power standard IEEE 802.3af (Class 3) PoE devices such as basic Wi-Fi Access Points, VoIP desk phones, or IP cameras.
   - If powering power-hungry IEEE 802.3at (Class 4, 25W+) devices on Port 8, an upgraded upstream injector (e.g. 45W–60W / 802.3bt) is recommended.
-- **DANGER:** 
-  - **Do NOT connect 24V passive PoE devices** (e.g. older airMAX gear) — 48V will destroy them.
-  - **Do NOT connect standard client PCs/laptops** to Port 8 — keep non-PoE devices on Ports 1–7.
+- **Safety & Non-PoE Device Protection:**
+  - **Standard Client PCs / Laptops:** Fully safe to connect! Port 8 uses active IEEE 802.3af/at sensing via an internal Texas Instruments MSP430 MCU and eFuse controller. If a standard non-PoE device is plugged in, the 48V rail remains completely disabled (0V), and Port 8 operates as a standard 1 Gbps Gigabit Ethernet port.
+  - **Caution:** Do NOT connect 24V passive PoE devices (e.g. older airMAX antennas) — 48V active PoE is incompatible with 24V passive equipment.
 
 ---
 

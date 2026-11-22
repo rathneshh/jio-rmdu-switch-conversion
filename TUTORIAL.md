@@ -28,12 +28,14 @@ Looking at the RJ45 ports on the RMDU from left to right:
  [ Port 1 ] [ Port 2 ] [ Port 3 ] [ Port 4 ] [ Port 5 ] [ Port 6 ] [ Port 7 ]   [ Port 8 ]
  (YELLOW)   (YELLOW)   (YELLOW)   (YELLOW)   (YELLOW)   (YELLOW)   (YELLOW)     (BLUE)
     │                                                      │                    │
-    └─ PC Connect (VLAN 960)                               └─ PoE Power IN      └─ DO NOT USE!
+    └─ PC Connect (VLAN 960)                               └─ PoE Power IN      └─ Active PoE Out / Data
 ```
 
 * **Ports 1–7 (Yellow):** 10/100/1000 Mbps Gigabit Data Ports with PoE-In capability.
-* **Port 8 (Blue):** 48V PoE **OUTPUT** port (PSE).  
-  ⚠️ **SAFETY WARNING:** **NEVER connect your PC, laptop, or home router to Port 8 (Blue)!** It delivers active 48V power intended for external equipment and may damage non-PoE network cards.
+* **Port 8 (Blue):** Gigabit Data Port with **Active 48V–54V PoE Output** (IEEE 802.3af/at PSE).  
+  - **Non-PoE Devices (PCs, Laptops, Consoles):** Completely safe to connect! The internal TI eFuse hardware controller automatically detects non-PoE devices and leaves power OFF (0V), acting as a normal 1 Gbps Gigabit data port.
+  - **PoE Devices (APs, IP Cameras, VoIP Phones):** Supplies active 48V–54V PoE power (up to ~15W–18W with the stock 30W adapter).
+  - **Caution:** Do NOT connect 24V passive PoE gear (e.g. older airMAX antennas) as they do not support 48V–54V active voltage.
 
 ---
 

@@ -352,7 +352,7 @@ def print_banner():
     print(f"  1. Connect your PC Ethernet cable specifically into {C_GREEN}{C_BOLD}PORT 1 (Yellow){C_RESET}.")
     print("     (Factory firmware restricts management VLAN 960 exclusively to Port 1).")
     print("  2. Ensure RMDU is powered on via PoE injector on ANY other Yellow port (Ports 2–7).")
-    print(f"  3. {C_RED}{C_BOLD}NEVER connect your PC to Port 8 (Blue PoE Out)!{C_RESET}")
+    print(f"  3. Avoid Port 8 (Blue) during provisioning — Port 1 is required for VLAN 960.")
     print("-" * 76)
 
 def main():
@@ -570,7 +570,7 @@ def main():
     print(f"\n{C_BOLD}{C_CYAN}Hardware Port Wiring:{C_RESET}")
     print("-" * 76)
     print("  • Ports 1–7 (Yellow): Connect home router, PCs, TVs, and APs (1 Gbps line rate).")
-    print(f"  • Port 8 (Blue):      {C_RED}{C_BOLD}DO NOT connect normal client PCs{C_RESET} (provides 48V PoE Out).")
+    print(f"  • Port 8 (Blue):      Active 48V PoE Out (802.3af/at). Non-PoE PCs are safe (auto-detected, 0V).")
     print("=" * 76 + "\n")
 
 if __name__ == "__main__":
